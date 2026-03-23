@@ -3,215 +3,255 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Aparna 💙</title>
+<title>Happy Birthday Aparna 💙</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-body{overflow:hidden;background:linear-gradient(135deg,#d6efff,#ffe8f3);}
-
-/* BACKGROUND LAYERS */
-.layer{
-  position:absolute;width:200%;height:200%;
-  background:radial-gradient(circle,rgba(255,255,255,0.3) 1px,transparent 1px);
-  background-size:50px 50px;
-  animation:move 25s linear infinite;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
-.layer:nth-child(2){animation-duration:40s;opacity:.3;}
-@keyframes move{from{transform:translate(0,0)}to{transform:translate(-250px,-250px)}}
 
-/* SECTIONS */
-.section{
-  position:absolute;width:100%;height:100vh;
-  display:flex;justify-content:center;align-items:center;
-  opacity:0;transform:translateY(30px) scale(.96);
-  transition:.7s ease;
+body {
+  overflow: hidden;
+  background: linear-gradient(135deg, #cfe9ff, #ffe6f0);
 }
-.active{opacity:1;transform:translateY(0) scale(1);z-index:2;}
+
+/* LAYERS */
+.bg-layer {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.3) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: moveBg 20s linear infinite;
+  opacity: 0.4;
+}
+
+.bg-layer:nth-child(2) {
+  animation-duration: 35s;
+  opacity: 0.2;
+}
+
+@keyframes moveBg {
+  from { transform: translate(0,0); }
+  to { transform: translate(-200px,-200px); }
+}
+
+/* SECTION */
+.section {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(30px) scale(0.97);
+  transition: 0.6s ease;
+}
+
+.active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  z-index: 2;
+}
 
 /* CARD */
-.card{
-  background:rgba(255,255,255,.75);
-  backdrop-filter:blur(12px);
-  padding:30px;
-  border-radius:22px;
-  max-width:420px;
-  box-shadow:0 15px 40px rgba(0,0,0,.08);
+.card {
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(12px);
+  padding: 30px;
+  border-radius: 22px;
+  max-width: 420px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.08);
 }
 
 /* TEXT */
-h1{font-size:26px;color:#0a6fb6;margin-bottom:10px;}
-p{font-size:15px;color:#333;line-height:1.6;margin:8px 0;}
+h1 {
+  font-size: 28px;
+  color: #0a6fb6;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 15px;
+  color: #333;
+  line-height: 1.6;
+  margin: 8px 0;
+}
 
 /* BUTTON */
-button{
-  margin-top:20px;padding:12px 22px;border:none;
-  border-radius:30px;
-  background:linear-gradient(135deg,#4facfe,#00c6ff);
-  color:#fff;cursor:pointer;
-  transition:.3s;
-}
-button:hover{transform:scale(1.06);}
-
-/* FLOATING */
-.bubble{
-  position:absolute;border-radius:50%;
-  background:rgba(255,255,255,.4);
-  animation:float 10s infinite ease-in-out;
-}
-@keyframes float{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-40px)}
+button {
+  margin-top: 20px;
+  padding: 12px 22px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #4facfe, #00c6ff);
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s;
 }
 
-/* FADE TEXT */
-.fadeText{
-  opacity:0;
-  animation:fadeIn 1.5s forwards;
+button:hover {
+  transform: scale(1.06);
 }
-@keyframes fadeIn{to{opacity:1}}
+
+/* FLOAT ELEMENTS */
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.4);
+  animation: float 12s infinite ease-in-out;
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-40px); }
+}
+
+/* SHAKE */
+.shake {
+  animation: shake 0.4s;
+}
+
+@keyframes shake {
+  25% { transform: translateX(-4px); }
+  50% { transform: translateX(4px); }
+  75% { transform: translateX(-4px); }
+}
 
 /* MUSIC */
-.music{
-  position:fixed;bottom:20px;right:20px;
-  background:#fff;padding:10px;border-radius:50%;cursor:pointer;
+.music-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: white;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
 }
 </style>
 </head>
 
 <body>
 
-<div class="layer"></div>
-<div class="layer"></div>
+<!-- BACKGROUND LAYERS -->
+<div class="bg-layer"></div>
+<div class="bg-layer"></div>
 
+<!-- FLOATING BUBBLES -->
 <script>
-for(let i=0;i<12;i++){
- let b=document.createElement("div");
- b.className="bubble";
- b.style.width=b.style.height=(20+Math.random()*40)+"px";
- b.style.left=Math.random()*100+"vw";
- b.style.top=Math.random()*100+"vh";
- document.body.appendChild(b);
+for(let i=0;i<10;i++){
+  let b=document.createElement("div");
+  b.className="bubble";
+  b.style.width=b.style.height=(20+Math.random()*40)+"px";
+  b.style.left=Math.random()*100+"vw";
+  b.style.top=Math.random()*100+"vh";
+  document.body.appendChild(b);
 }
 </script>
 
 <!-- PAGE 1 -->
 <div class="section active" id="p1">
-<div class="card">
-<h1>Happy Birthday Aparna 🎂</h1>
-<p>Aaj ka din thoda special banana tha… bas ussi ka ek chhota sa attempt hai 😊</p>
-<button onclick="next()">Start</button>
-</div>
+  <div class="card">
+    <h1>Happy Birthday Aparna 🎂</h1>
+    <p>Aaj ka din thoda special hona chahiye… isliye yeh chhota sa surprise 😊</p>
+    <button onclick="next()">Continue</button>
+  </div>
 </div>
 
 <!-- PAGE 2 -->
 <div class="section" id="p2">
-<div class="card">
-<p class="fadeText">Simple sa thought tha…</p>
-<p class="fadeText" style="animation-delay:.5s">ki tumhare liye kuch alag kiya jaaye.</p>
-<button onclick="next()">Continue</button>
-</div>
+  <div class="card">
+    <p>Hi Aparna,</p>
+    <p>maan lo main future se aaya hu 😄</p>
+    <p>aur ek cheez confirm hai — tum waise hi rehne wali ho… calm, simple, aur genuinely achi.</p>
+    <button onclick="next()">Hmm okay</button>
+  </div>
 </div>
 
 <!-- PAGE 3 -->
 <div class="section" id="p3">
-<div class="card">
-<p>Waise ek baat bolu?</p>
-<p>tumhari vibe kaafi calm hai…</p>
-<p>aur aise log honestly kaafi rare hote hain.</p>
-<button onclick="next()">Hmm</button>
-</div>
+  <div class="card" id="trap">
+    <p>Itni jaldi maan liya? 😄</p>
+    <p>Thoda patience rakho…</p>
+    <p>yeh bas start hai.</p>
+    <button onclick="next()">Fine, continue</button>
+  </div>
 </div>
 
-<!-- PAGE 4 -->
+<!-- PAGE 4 (BIG PARAGRAPH) -->
 <div class="section" id="p4">
-<div class="card">
-<p>Kabhi kabhi log loudly achhe lagte hain,</p>
-<p>aur kabhi quietly…</p>
-<p>tum definitely second type ho.</p>
-<button onclick="next()">Okay</button>
-</div>
+  <div class="card">
+    <p>
+      Aparna, honestly… yeh sab bas ek simple wish nahi hai. 
+      Kabhi kabhi kuch log bina zyada effort ke hi achhe lagte hain — 
+      unka nature, unka way of talking, unki presence. 
+      Tum unmein se ek ho. 
+      Shayad tumhe khud realize na ho, but you carry a very calm and positive vibe. 
+      Aise log rare hote hain. 
+      Bas yahi wish hai ki tum hamesha waise hi raho — 
+      without changing yourself for anyone unnecessarily. 
+      Life jo bhi de, tum usse handle kar logi… because you already have that strength.
+    </p>
+
+    <p style="margin-top:15px;">
+      — Harshu
+    </p>
+
+    <button onclick="next()">Last</button>
+  </div>
 </div>
 
 <!-- PAGE 5 -->
 <div class="section" id="p5">
-<div class="card">
-<p>Isliye socha ki ek normal “Happy Birthday” se thoda better hona chahiye 🙂</p>
-<button onclick="next()">Go on</button>
-</div>
-</div>
-
-<!-- PAGE 6 -->
-<div class="section" id="p6">
-<div class="card">
-<p>
-Aparna, tum un logon me se ho jinke saath zyada explain karne ki zarurat nahi padti.
-Tumhari simplicity hi tumhari best cheez hai.
-Aur honestly, woh lose nahi karni chahiye kabhi bhi.
-</p>
-<button onclick="next()">Continue</button>
-</div>
+  <div class="card">
+    <p>This was just a small effort… nothing big.</p>
+    <p>But yeah, it was meant for you.</p>
+    <button onclick="restart()">Replay</button>
+  </div>
 </div>
 
-<!-- PAGE 7 -->
-<div class="section" id="p7">
-<div class="card">
-<p>
-Life thodi unpredictable hoti hai…  
-par tum jaise ho, waise hi raho —  
-baaki cheezein apne aap sort ho jaati hain.
-</p>
-<button onclick="next()">Next</button>
-</div>
-</div>
-
-<!-- PAGE 8 -->
-<div class="section" id="p8">
-<div class="card">
-<p>
-Bas itna sa wish hai —  
-tum hamesha thodi si khush raho,  
-thodi si peaceful,  
-aur bilkul waise hi… jaise ab ho.
-</p>
-<p style="margin-top:10px;">— Harshu</p>
-<button onclick="next()">Last</button>
-</div>
-</div>
-
-<!-- PAGE 9 -->
-<div class="section" id="p9">
-<div class="card">
-<p>This was just a small effort…</p>
-<p>but genuinely meant for you 💙</p>
-<button onclick="restart()">Replay</button>
-</div>
-</div>
-
+<!-- MUSIC -->
 <audio id="music" loop>
-<source src="https://www.bensound.com/bensound-music/bensound-slowmotion.mp3">
+  <source src="https://www.bensound.com/bensound-music/bensound-slowmotion.mp3">
 </audio>
 
-<div class="music" onclick="toggle()">🎵</div>
+<div class="music-btn" onclick="toggle()">🎵</div>
 
 <script>
-let c=1;
+let cur=1;
 
 function next(){
- document.getElementById("p"+c).classList.remove("active");
- c++;
- document.getElementById("p"+c).classList.add("active");
+  document.getElementById("p"+cur).classList.remove("active");
+  cur++;
+  document.getElementById("p"+cur).classList.add("active");
+
+  if(cur===3){
+    let t=document.getElementById("trap");
+    t.classList.add("shake");
+    setTimeout(()=>t.classList.remove("shake"),400);
+  }
 }
 
 function restart(){
- document.getElementById("p"+c).classList.remove("active");
- c=1;
- document.getElementById("p1").classList.add("active");
+  document.getElementById("p"+cur).classList.remove("active");
+  cur=1;
+  document.getElementById("p1").classList.add("active");
 }
 
-let m=document.getElementById("music"),p=false;
-function toggle(){ p?m.pause():m.play(); p=!p; }
+let m=document.getElementById("music");
+let playing=false;
+
+function toggle(){
+  if(!playing){ m.play(); playing=true; }
+  else { m.pause(); playing=false; }
+}
 </script>
 
 </body>
